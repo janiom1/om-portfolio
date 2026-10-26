@@ -25,6 +25,22 @@ const projects = [
       "A space for practical experiments in data preprocessing, feature engineering, and clustering algorithms.",
     tags: ["Python", "ML", "Data"],
   },
+  {
+    number: "04",
+    name: "RepoDoctor AI",
+    category: "AI · STATIC CODE ANALYSIS",
+    description:
+      "An AI-powered repository analyzer that scans uploaded ZIP repositories, detects potential code issues and security risks, and recommends improvements with reviewable patches.",
+    tags: ["Python", "FastAPI", "JavaScript/TypeScript", "Static Code Analysis"],
+    features: [
+      "ZIP-based repository scanning",
+      "Multi-language code analysis",
+      "Security and code-quality issue detection",
+      "Severity-based findings",
+      "Actionable recommendations",
+      "Reviewable code patches",
+    ],
+  },
 ];
 ---
 
@@ -182,7 +198,7 @@ const projects = [
             <p class="eyebrow">02 / SELECTED WORK</p>
             <h2>Things I've <span class="muted">worked on.</span></h2>
           </div>
-          <span class="project-count">03 PROJECTS</span>
+          <span class="project-count">04 PROJECTS</span>
         </div>
 
         <div class="project-list">
@@ -196,6 +212,11 @@ const projects = [
                 <div class="project-tags">
                   {project.tags.map((tag) => <span>{tag}</span>)}
                 </div>
+                {project.features && (
+                  <ul class="project-features">
+                    {project.features.map((feature) => <li>{feature}</li>)}
+                  </ul>
+                )}
               </div>
               <span class="project-arrow" aria-hidden="true">↗</span>
             </article>
@@ -362,6 +383,12 @@ const projects = [
   .project-description { color: #a3a49b; font-size: 12px; line-height: 1.8; max-width: 580px; margin: 0 0 18px; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 7px; }
   .project-tags span { padding: 6px 9px; }
+  .project-features {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 22px;
+    color: #a3a49b; font-size: 11px; line-height: 1.6; margin: 18px 0 0;
+    padding-left: 16px;
+  }
+  .project-features li::marker { color: #c7f36b; }
   .project-arrow { font-size: 21px; color: #c7f36b; }
   .project-note { color: #77796f; font-size: 11px; line-height: 1.8; margin-top: 22px; }
 
@@ -413,6 +440,7 @@ const projects = [
     .projects-heading { align-items: start; flex-direction: column; }
     .project-card { grid-template-columns: 28px 1fr 16px; gap: 10px; padding: 24px 5px; }
     h3 { font-size: 18px; }
+    .project-features { grid-template-columns: 1fr; }
     footer { padding: 20px; font-size: 8px; }
   }
   @media (prefers-reduced-motion: reduce) {
